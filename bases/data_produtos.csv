@@ -1,0 +1,139 @@
+id_Produto,Produto,fk_Categoria,Preço Unitário
+1,Computador_PowerPlex,1,R$ 5650
+2,Computador_SpeedMaster,1,R$ 1458
+3,Computador_QuantumElite,1,R$ 3256
+4,Computador_CyberPro,1,R$ 7890
+5,Computador_DataPulse,1,R$ 4599
+6,Computador_LogicStation,1,R$ 3548
+7,Computador_TechVista,1,R$ 2659
+8,Computador_MegaFusion,1,R$ 7895
+9,Computador_CodeMaster,1,R$ 3259
+10,Computador_ByteBlitz,1,R$ 6587
+11,Note_UltraBookSwift,2,R$ 9586
+12,Notebook_NovaFlex,3,R$ 5896
+13,Notebook_QuantumBook,3,R$ 12589
+14,Notebook_CyberElite,3,R$ 14587
+15,Notebook_DataMate,3,R$ 2563
+16,Notebook_LogicBook,3,R$ 19587
+17,Notebook_TechMate,3,R$ 4587
+18,Notebook_MegaPorta,3,R$ 2564
+19,Notebook_CodeCraftBook,3,R$ 2358
+20,Notebook_ByteBeam,3,R$ 9658
+21,Processador_QuantumCore i9,4,R$ 2158
+22,Processador_CyberSpeed X,4,R$ 25638
+23,Processador_DataStream Pro,4,R$ 11095
+24,Processador_LogicFusion,4,R$ 42658
+25,Processador_TechBlaze,4,R$ 5698
+26,Processador_MegaFlow,4,R$ 10254
+27,Processador_CodePulse X,4,R$ 16854
+28,Processador_ByteBoost Elite,4,R$ 18956
+29,Processador_SpeedCraft Pro,4,R$ 9658
+30,Processador_UltraLogic i7,4,R$ 17856
+31,GPU_CyberForce RTX,5,R$ 44589
+32,GPU_DataGlide Pro,5,R$ 23547
+33,GPU_LogicBoost HD,5,R$ 12584
+34,GPU_TechRush XR,5,R$ 36587
+35,GPU_MegaGamer X,5,R$ 39632
+36,GPU_CodeView Elite,5,R$ 22569
+37,GPU_ByteVision Pro,5,R$ 45987
+38,GPU_SpeedFlow GTX,5,R$ 16235
+39,GPU_UltraGlide XR,5,R$ 13254
+40,Monitor_CyberScreen Pro,6,R$ 20145
+41,Monitor_DataDisplay X,6,R$ 26548
+42,Monitor_LogicVision XR,6,R$ 23548
+43,Monitor_TechSight Pro,6,R$ 27598
+44,Monitor_MegaScreen X,6,R$ 10254
+45,Monitor_CodeGaze Elite,6,R$ 8542
+46,Monitor_ByteView Pro,6,R$ 6587
+47,Monitor_SpeedScape XR,6,R$ 10254
+48,Monitor_UltraSight Pro,6,R$ 22365
+49,Teclado_CyberType Elite,7,R$ 563
+50,Teclado_DataBoard X,7,R$ 1254
+51,Teclado_LogicTouch Pro,7,R$ 421
+52,Teclado_TechType XR,7,R$ 350
+53,Teclado_MegaKeys X,7,R$ 299
+54,Teclado_CodeTap Elite,7,R$ 458
+55,Teclado_ByteTouch Pro,7,R$ 625
+56,Teclado_SpeedType XR,7,R$ 102
+57,Teclado_UltraKeys Pro,7,R$ 7854
+58,Mouse_CyberClick Elite,8,R$ 521
+59,Mouse_DataPoint X,8,R$ 24
+60,Mouse_LogicGrip Pro,8,R$ 39
+61,Mouse_TechRover XR,8,R$ 54
+62,Mouse_MegaClick X,8,R$ 558
+63,Mouse_CodeControl Elite,8,R$ 1247
+64,Mouse_ByteGlide Pro,8,R$ 254
+65,Mouse_SpeedRover XR,8,R$ 269
+66,Mouse_UltraClick Pro,8,R$ 254
+67,Roteador_CyberRouter Elite,9,R$ 239
+68,Roteador_DataHub X,9,R$ 145
+69,Roteador_LogicConnect Pro,9,R$ 199
+70,Roteador_TechLink XR,9,R$ 202
+71,Roteador_MegaRouter X,9,R$ 354
+72,Roteador_CodeHub Elite,9,R$ 128
+73,Roteador_ByteConnect Pro,9,R$ 452
+74,Roteador_SpeedLink XR,9,R$ 632
+75,Roteador_UltraHub Pro,9,R$ 210
+76,Impressora_CyberPress Elite,10,R$ 547
+77,Impressora_DataPrint X,10,R$ 12547
+78,Impressora_LogicPrint Pro,10,R$ 2365
+79,Impressora_TechPrint XR,10,R$ 2485
+80,Impressora_MegaPress X,10,R$ 2965
+81,Impressora_CodePrint Elite,10,R$ 2365
+82,Impressora_BytePrint Pro,10,R$ 4852
+83,Impressora_SpeedPress XR,10,R$ 3478
+84,Impressora_UltraPrint Pro,10,R$ 3259
+85,WebCam_CyberLens Elite,11,R$ 2014
+86,WebCam_DataView X,11,R$ 102
+87,WebCam_LogicCam Pro,11,R$ 354
+88,WebCam_TechGaze XR,11,R$ 1258
+89,WebCam_MegaLens X,11,R$ 4695
+90,WebCam_CodeView Elite,11,R$ 12548
+91,WebCam_ByteCam Pro,11,R$ 125
+92,WebCam_SpeedGaze XR,11,R$ 989
+93,WebCam_UltraLens Pro,11,R$ 99
+94,SSD_CyberStore Elite,12,R$ 500
+95,SSD_DataVault X,12,R$ 458
+96,SSD_LogicDrive Pro,12,R$ 487
+97,SSD_TechStore XR,12,R$ 3215
+98,SSD_MegaVault X,12,R$ 4698
+99,SSD_CodeDrive Elite,12,R$ 5685
+100,SSD_ByteStore Pro,12,R$ 2365
+101,SSD_SpeedVault XR,12,R$ 9554
+102,SSD_UltraDrive Pro,12,R$ 485
+103,Placa Mãe_CyberSocket Elite,13,R$ 9563
+104,Placa Mãe_DataMatrix X,13,R$ 8475
+105,Placa Mãe_LogicLink Pro,13,R$ 6587
+106,Placa Mãe_TechMatrix XR,13,R$ 9586
+107,Placa Mãe_MegaSocket X,13,R$ 14582
+108,Placa Mãe_CodeBoard Elite,13,R$ 22658
+109,Placa Mãe_ByteMatrix Pro,13,R$ 95874
+110,Placa Mãe_SpeedLink XR,13,R$ 4521
+111,Placa Mãe_UltraBoard Pro,13,R$ 2544
+112,Cooler_CyberChill Elite,14,R$ 1985
+113,Cooler_DataBreeze X,14,R$ 600
+114,Cooler_LogicCool Pro,14,R$ 458
+115,Cooler_TechChill XR,14,R$ 496
+116,Cooler_MegaBreeze X,14,R$ 325
+117,Cooler_CodeCool Elite,14,R$ 3548
+118,Cooler_ByteBreeze Pro,14,R$ 524
+119,Cooler_SpeedChill XR,14,R$ 59658
+120,Cooler_UltraCool Pro,14,R$ 2658
+121,Memória_CyberRAM Elite,15,R$ 2487
+122,Memória_DataBoost X,15,R$ 59657
+123,Memória_LogicMemory Pro,15,R$ 2647
+124,Memória_TechRAM XR,15,R$ 9658
+125,Memória_MegaBoost X,15,R$ 3446
+126,Memória_CodeMemory Elite,15,R$ 4985
+127,Memória_ByteBoost Pro,15,R$ 49386
+128,Memória_SpeedRAM XR,15,R$ 1958
+129,Memória_UltraBoost Pro,15,R$ 49856
+130,Hub_CyberLink Elite,16,R$ 2365
+131,Hub_DataConnect X,16,R$ 1574
+132,Hub_LogicHub Pro,16,R$ 2659
+133,Hub_TechLink XR,16,R$ 5248
+134,Hub_MegaConnect X,16,R$ 6593
+135,Hub_CodeHub Elite,16,R$ 3554
+136,Hub_ByteLink Pro,16,R$ 4659
+137,Hub_SpeedConnect XR,16,R$ 46698
+138,Hub_UltraHub Pro,16,R$ 3596
