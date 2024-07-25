@@ -82,24 +82,22 @@ app = dash.Dash(__name__)
 
 
 linha_cabecalho = html.Div([
-    html.Div([
-        dcc.Dropdown(
-            options=df['Cliente'].sort_values(ascending=True).unique(),id='dropdown_cliente',
-            placeholder="Clientes",
-            style={
-                'font-family' : 'Fira Code',
-                'color':'black'
+   
+    dcc.Dropdown(
+        options=df['Cliente'].sort_values(ascending=True).unique(),id='dropdown_cliente',
+        placeholder="Clientes",
+        style={
+            'font-family' : 'Fira Code',
+            'color':'black',
+            'width':'33%'
             }
-            )
-    ],
-    style={'width':'250px'}),
+        ),
 
-    html.Div([
         html.Legend(
             "Gustavo Lima",
-            style={'font-size': '150%', 'text-align':'center'}
-            )
-    ],style={}),
+            style={'font-size': '150%', 'text-align':'center','width':'33%'}
+            ),
+
 
     html.Div(
         ThemeSwitchAIO(
@@ -109,7 +107,7 @@ linha_cabecalho = html.Div([
                 url_vapor
             ]
         ),
-        style={}
+        style={'width':'33%'}
     )
 ],
 style={'display':"flex",'align-items':'center','justify-content':'space-between','margin':"30px"})
@@ -121,8 +119,8 @@ linha1 = html.Div([
             dcc.Graph(id='visual01')
         ]),
             
-      
-    dcc.Dropdown(
+      html.Div([
+          dcc.Dropdown(
         options=lista_categorias,
         id='dropdown_categoria',
         placeholder="Categoria",
@@ -133,17 +131,20 @@ linha1 = html.Div([
             'margin-top':'20px'
         }
 
-    )
-        
-    ],style={'display':'flex'}),
-    
-    html.Div(
+        ),
+          
         dbc.RadioItems(
             id='radio_meses',
             options=lista_meses,
             inline=True
         )
-    )
+      ])
+    
+        
+    ],style={'display':'flex'}),
+    
+   
+   
 ],style={'width':'90%','margin':'0 auto', 'text-align':'center'})
 
 linha2 = html.Div([
