@@ -94,7 +94,7 @@ linha_cabecalho = html.Div([
         ),
 
         html.Legend(
-            "Gustavo Lima",
+            "Dashboard",
             style={'font-size': '150%', 'text-align':'center','width':'33%'}
             ),
 
@@ -107,7 +107,7 @@ linha_cabecalho = html.Div([
                 url_vapor
             ]
         ),
-        style={'width':'33%'}
+        style={'width':'33%','text-align':'end'}
     )
 ],
 style={'display':"flex",'align-items':'center','justify-content':'space-between','margin':"30px"})
@@ -117,7 +117,7 @@ linha1 = html.Div([
         html.Div([
             html.H4(id='output_cliente'),
             dcc.Graph(id='visual01')
-        ]),
+        ],style={'width':'100%'}),
             
       html.Div([
           dcc.Dropdown(
