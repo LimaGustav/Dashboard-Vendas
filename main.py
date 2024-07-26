@@ -6,8 +6,7 @@ from dash_bootstrap_templates import ThemeSwitchAIO
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
-import calendar
-import locale
+
 
 
 # Importando dados  
