@@ -13,7 +13,8 @@ import pandas as pd
 df = pd.read_csv('./bases/data_consolidados.csv')
 df['dt_Venda'] = df['dt_Venda'].astype('datetime64[us]')
 df['Mes'] = df['dt_Venda'].dt.strftime('%b').str.upper()
-
+df = df[df['Mes'].notna()]
+df = df[df['Mes'] != '']
 
 #Listas de apoio
 lista_meses = []
@@ -51,20 +52,17 @@ def filtro_cliente(cliente_selecionado):
         return df['Cliente'] == cliente_selecionado
     
 def filtro_mes(mes_selecionado):
-    if mes_selecionado is None:
+    if mes_selecionado is None or mes_selecionado=='ano':
         return pd.Series(True,index=df.index)
-    elif mes_selecionado == 'ano':
-        return df['Mes']
+
     else:
         # Retorna os indices
         return df['Mes'] == mes_selecionado 
     
 
 def filter_categoria(categoria_selecionada):
-    if categoria_selecionada is None:
+    if categoria_selecionada is None or categoria_selecionada == 'todos':
         return pd.Series(True,index=df.index)
-    elif categoria_selecionada == 'todos':
-        return df['Categorias']
     else:
         # Retorna os indices
         return df['Categorias'] == categoria_selecionada
@@ -89,7 +87,7 @@ linha_cabecalho = html.Div([
         style={
             'font-family' : 'Fira Code',
             'color':'black',
-            'width':'33%'
+            'width':'40%'
             }
         ),
 
@@ -113,11 +111,10 @@ linha_cabecalho = html.Div([
 style={'display':"flex",'align-items':'center','justify-content':'space-between','margin':"30px"})
 
 linha1 = html.Div([
-    html.Div([
         html.Div([
             html.H4(id='output_cliente'),
             dcc.Graph(id='visual01')
-        ],style={'width':'100%'}),
+        ],style={'width':'65%'}),
             
       html.Div([
           dcc.Dropdown(
@@ -127,8 +124,8 @@ linha1 = html.Div([
         style={
             'font-family' : 'Fira Code',
             'color':'black',
-            'width': '50%',
-            'margin-top':'20px'
+            'width': '80%',
+            'margin-bottom':'20px'
         }
 
         ),
@@ -136,27 +133,24 @@ linha1 = html.Div([
         dbc.RadioItems(
             id='radio_meses',
             options=lista_meses,
-            inline=True
+            inline=True,
+            style={'text-align':'justify'}
         )
-      ])
-    
-        
-    ],style={'display':'flex'}),
-    
+      ], style={'width':'30%','margin-top':'40px'})
    
    
-],style={'width':'90%','margin':'0 auto', 'text-align':'center'})
+],style={'margin':'0 auto', 'text-align':'center','display':"flex"})
 
 linha2 = html.Div([
     dcc.Graph(
-        style={'width':'70%'},
+        style={'width':'65%'},
         id='visual02'
     ),
     dcc.Graph(
-        style={'width':'30%'},
+        style={'width':'35%'},
         id='visual03'
     )
-],style={'display': 'flex', 'justify-content':'space-between','width':'90%'})
+],style={'display': 'flex', 'justify-content':'space-between','width':'100%','margin-top':'50px'})
 # App Layout----------------------------------------------------------------------------------
 app.layout = html.Div([
     linha_cabecalho,
@@ -228,7 +222,11 @@ def visual01(cliente,toggle,mes,categoria):
     return fig1
 
 @app.callback(
+    [
+        
     Output('visual02','figure'),
+    Output('visual03','figure'),
+    ],
     [
         Input(ThemeSwitchAIO.ids.switch('theme'),'value'),
         Input('radio_meses','value'),
@@ -236,17 +234,24 @@ def visual01(cliente,toggle,mes,categoria):
     ]
 )
 def visual02(toggle,mes,categoria):
+    
     template = 'darkly' if toggle else 'vapor'
 
     nome_mes = filtro_mes(mes)
     nome_categoria = filter_categoria(categoria)
+    
     filtro = nome_mes & nome_categoria
-    df1 = df.loc[filtro]
+    filtro_categoria = nome_categoria
+    
+    df2 = df.loc[filtro_categoria]
+    df3 = df.loc[filtro]
+    
+    df_grupo2 = df2.groupby(by='Loja')['Total'].sum().reset_index()
+    df_grupo2 = df_grupo2.sort_values(by='Total',ascending=False).head()
+    
+    df_grupo3 = df3.groupby(by=['Mes','Loja'])['Total'].sum().reset_index()
 
-    df_grupo = df1.groupby(by='Loja')['Total'].sum().reset_index()
-    df_grupo = df_grupo.sort_values(by='Total',ascending=False).head()
-
-    fig1 = px.bar(df_grupo,
+    fig2 = px.bar(df_grupo2,
                   x='Loja',
                   y='Total',
                   title='Teste',
@@ -255,7 +260,7 @@ def visual02(toggle,mes,categoria):
                   template=template
                   )
     
-    fig1.update_layout(
+    fig2.update_layout(
         margin={'t':0},
         xaxis={'showgrid':False},
         yaxis={
@@ -274,6 +279,44 @@ def visual02(toggle,mes,categoria):
     )
 
     # fig1.update_traces(texttemplate='%{text::.2s}',textposition='outside')
-    return fig1
+    
+    
+    #Visual 3 ________________________________________________________________
+    fig3 = go.Figure(data=go.Scatterpolar(
+        r = df_grupo3["Total"],
+        fill='toself',
+        theta=df_grupo3['Loja'],
+        line=dict(color='rgba(31,119,180)'),
+        marker=dict(color='rgb(31,119,180)',size=8),
+        opacity=0.8
+    ))
+    
+    fig3.update_layout(
+        template=template,
+
+        polar=dict(
+            radialaxis=dict(
+                visible=True,
+                tickfont=dict(size=10),
+                tickangle=0,
+                tickcolor='rgba(68,68,68)',
+                ticklen=5,
+                tickwidth=1,
+                tickprefix='',
+                ticksuffix='',
+                range=[
+                    0,max(df_grupo3['Total']+1000)
+                ]
+            )
+        ),
+        font=dict(
+            family='Fira Code',
+            size=12
+        ),
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        margin=dict(l=40,r=40,t=80,b=40)
+    )
+    return fig2,fig3
 # Subindo servidor
 if __name__ == '__main__' : app.run_server(debug=True)
